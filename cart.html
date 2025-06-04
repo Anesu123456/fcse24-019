@@ -1,142 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ecommerce</title>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Basic styling for the message box */
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .message-box.show {
+            display: block;
+            opacity: 1;
+        }
+        .message-box.error {
+            background-color: #f44336; /* Red for errors */
+        }
+    </style>
 </head>
 
 <body>
-  <section id="header">
-    <a href="#"><img src="Images/L1.png" width="170px" height="90px" class="logo" alt=""></a>
-    <div>
-      <ul id="navbar"> 
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li id="lg-bag"><a class="active" href="cart.html"><i class="fas fa-shopping-bag shopping-icon"></i></a></li>
-        <a href="#" id="close"><i class="fas fa-times"></i></a>
-      </ul>
-    </div>
-    <div id="mobile">
-      <a href="cart.html"><i class="fas fa-shopping-bag shopping-icon"></i></a>
-      <i id="bar" class="fas fa-outdent"></i>
-    </div>
-  </section>
-
-  <section id="page-header" class="cart">
-    <h2>#Let's Checkout</h2> 
-    <p>Get your Products!</p>
-  </section>  
-
-  <section id="cart" class="section-p1">
-    <table width="100%">
-      <thead>
-        <tr>
-          <td>Remove</td> 
-          <td>Image</td> 
-          <td>Product</td> 
-          <td>Price</td> 
-          <td>Quantity</td>  
-          <td>Subtotal</td> 
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
-  </section>
-
-  <section id="cart-add" class="section-p1">
-    <div id="coupon">
-      <h3>Apply Coupon</h3>
-      <div>
-        <input type="text" placeholder="Enter Your Coupon" />
-        <button class="normal">Apply</button>
-      </div>
-    </div>
-
-    <div id="subtotal">
-      <h3>Cart Totals</h3>
-      <table>
-        <tr>
-          <td>Cart Subtotal</td>
-          <td>P0.00</td>
-        </tr>
-        <tr>
-          <td>Shipping</td>
-          <td>Free</td>
-        </tr>
-        <tr>
-          <td><strong>Total</strong></td>
-          <td><strong>P0.00</strong></td>
-        </tr>
-      </table>
-      <button class="normal">Proceed to Checkout</button>
-    </div>
-  </section>
-
-  <footer class="section-p1">
-    <div class="col">
-      <img class="logo" src="Images/L1.png" width="170px" height="90px" style="margin-left: 60px" />
-      <h4>Contact</h4>
-      <p><strong>Address:</strong> Saint Patricks Road, Street 2, Francistown</p>
-      <p><strong>Phone:</strong> +01 2222 365 / (+91) 01 2345 6789</p>
-      <p><strong>Hours:</strong> 24 hours</p>
-      <div class="follow">
-        <h4>Follow us</h4>
-        <div class="icon">
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-pinterest"></i>
-          <i class="fab fa-youtube"></i>
+    <section id="header">
+        <a href="#"><img src="Images/L1.png" width="170px" height="90px" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fas fa-shopping-bag shopping-icon"></i></a></li>
+                <a href="#" id="close"><i class="fas fa-times"></i></a>
+            </ul>
         </div>
-      </div>
-    </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-bag shopping-icon"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
 
-    <div class="col">
-      <h4>About</h4>
-      <a href="#">About us</a>
-      <a href="#">Delivery Information</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Contact us</a>
-    </div>
+    <section id="page-header" class="cart">
+        <h2>#Let's Checkout</h2>
+        <p>Get your Products!</p>
+    </section>
 
-    <div class="col">
-      <h4>My Account</h4>
-      <a href="#">Sign In</a>
-      <a href="#">View Cart</a>
-      <a href="#">My Wishlist</a>
-      <a href="#">Track My Order</a>
-      <a href="#">Help</a>
-    </div>
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody id="cart-table-body">
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
 
-    <div class="col install">
-      <h4>Install App</h4>
-      <p>From App Store or Google Play</p>
-      <div class="row">
-        <img src="Images/Pay/AA.png" width="170px" height="55px" alt="">
-        <img src="Images/Pay/GG.png" width="170px" height="55px" alt="">
-      </div>
-      <p>Secured Payment Gateways</p>
-      <img src="Images/Pay/P4.png" width="340px" height="80px" alt="">
-    </div>
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter Your Coupon" id="coupon-input" />
+                <button class="normal" id="apply-coupon-btn">Apply</button>
+            </div>
+        </div>
 
-    <div class="copyright">
-      <p>© 2025 Amélie Fashion Collection. All rights reserved. Website design & development by Anesu Chipanga</p>
-    </div>
-  </footer>
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td id="cart-subtotal">P0.00</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong id="cart-total">P0.00</strong></td>
+                </tr>
+            </table>
+            <button class="normal" id="proceed-to-checkout-btn">Proceed to Checkout</button>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
-   
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="Images/L1.png" width="170px" height="90px" style="margin-left: 60px" />
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Saint Patricks Road, Street 2, Francistown</p>
+            <p><strong>Phone:</strong> +01 2222 365 / (+91) 01 2345 6789</p>
+            <p><strong>Hours:</strong> 24 hours</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="Images/Pay/AA.png" width="170px" height="55px" alt="">
+                <img src="Images/Pay/GG.png" width="170px" height="55px" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="Images/Pay/P4.png" width="340px" height="80px" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 Amélie Fashion Collection. All rights reserved. Website design & development by Anesu Chipanga</p>
+        </div>
+    </footer>
+
+    <!-- Message Box for user feedback -->
+    <div id="messageBox" class="message-box"></div>
+
+    <script>
+        const cartTableBody = document.getElementById('cart-table-body');
+        const cartSubtotalElement = document.getElementById('cart-subtotal');
+        const cartTotalElement = document.getElementById('cart-total');
+        const proceedToCheckoutBtn = document.getElementById('proceed-to-checkout-btn');
+        const applyCouponBtn = document.getElementById('apply-coupon-btn');
+        const couponInput = document.getElementById('coupon-input');
+        const messageBox = document.getElementById('messageBox');
+
+        // Function to display a message to the user
+        function showMessage(message, type = 'success') {
+            messageBox.textContent = message;
+            messageBox.className = `message-box show ${type}`; // Add type for different styles if needed
+            setTimeout(() => {
+                messageBox.className = 'message-box';
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // Function to load cart items from localStorage and display them
+        function loadCartItems() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartTableBody.innerHTML = ''; // Clear existing rows
+
+            if (cart.length === 0) {
+                cartTableBody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Your cart is empty.</td></tr>';
+            } else {
+                cart.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><a href="#" class="remove-item-btn" data-product-id="${product.id}"><i class="far fa-times-circle"></i></a></td>
+                        <td><img src="${product.image}" alt="${product.name}" width="80px" height="80px"></td>
+                        <td>${product.name} (Size: ${product.size})</td>
+                        <td>P ${product.price.toFixed(2)}</td>
+                        <td><input type="number" value="${product.quantity}" min="1" class="quantity-input" data-product-id="${product.id}"></td>
+                        <td>P ${(product.price * product.quantity).toFixed(2)}</td>
+                    `;
+                    cartTableBody.appendChild(row);
+                });
+            }
+            updateCartTotals();
+            addEventListenersToCartItems();
+        }
+
+        // Function to update cart totals
+        function updateCartTotals() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let subtotal = 0;
+
+            cart.forEach(product => {
+                subtotal += product.price * product.quantity;
+            });
+
+            cartSubtotalElement.textContent = `P ${subtotal.toFixed(2)}`;
+            cartTotalElement.textContent = `P ${subtotal.toFixed(2)}`; // Shipping is free, so total is same as subtotal
+        }
+
+        // Function to add event listeners to dynamically created cart elements
+        function addEventListenersToCartItems() {
+            // Remove item buttons
+            document.querySelectorAll('.remove-item-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const productIdToRemove = event.currentTarget.dataset.productId;
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    cart = cart.filter(item => item.id !== productIdToRemove);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    showMessage("Item removed from cart.");
+                    loadCartItems(); // Reload cart to update display
+                });
+            });
+
+            // Quantity input changes
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', (event) => {
+                    const productIdToUpdate = event.currentTarget.dataset.productId;
+                    const newQuantity = parseInt(event.currentTarget.value);
+
+                    if (newQuantity < 1) {
+                        showMessage("Quantity cannot be less than 1. Item removed.", "error");
+                        // If quantity is set to 0 or less, remove the item
+                        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        cart = cart.filter(item => item.id !== productIdToUpdate);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        loadCartItems();
+                        return;
+                    }
+
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const productIndex = cart.findIndex(item => item.id === productIdToUpdate);
+
+                    if (productIndex > -1) {
+                        cart[productIndex].quantity = newQuantity;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        showMessage("Quantity updated.");
+                        loadCartItems(); // Reload cart to update display and totals
+                    }
+                });
+            });
+        }
+
+        // Event listener for "Proceed to Checkout" button
+        proceedToCheckoutBtn.addEventListener('click', () => {
+            showMessage("Proceeding to checkout is not yet implemented.", "info");
+            // In a real application, this would redirect to a checkout page
+        });
+
+        // Event listener for "Apply Coupon" button
+        applyCouponBtn.addEventListener('click', () => {
+            const couponCode = couponInput.value.trim();
+            if (couponCode) {
+                showMessage(`Coupon "${couponCode}" applied! (Functionality not fully implemented)`, "info");
+                // In a real application, this would validate the coupon and apply discounts
+            } else {
+                showMessage("Please enter a coupon code.", "error");
+            }
+        });
+
+        // Load cart items when the page loads
+        document.addEventListener('DOMContentLoaded', loadCartItems);
+    </script>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

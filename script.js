@@ -31,4 +31,28 @@ document.getElementById("signupBtn").addEventListener("click", function () {
     }
   });
 
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Navigation Toggle
+    const bar = document.getElementById('bar');
+    const close = document.getElementById('close');
+    const nav = document.getElementById('navbar');
+
+    // Check if the 'bar' element exists before adding an event listener
+    if (bar) {
+        bar.addEventListener('click', () => {
+            // Add 'active' class to the navigation bar to show it
+            nav.classList.add('active');
+        });
+    }
+
+    // Check if the 'close' element exists before adding an event listener
+    if (close) {
+        close.addEventListener('click', () => {
+            // Remove 'active' class from the navigation bar to hide it
+            nav.classList.remove('active');
+        });
+    }
+});
+
     
