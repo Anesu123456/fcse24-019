@@ -10,27 +10,7 @@
         xintegrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Basic styling for the message box */
-        .message-box {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: none; /* Hidden by default */
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .message-box.show {
-            display: block;
-            opacity: 1;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -265,14 +245,6 @@
             MainImg.src = smallimg[3].src;
         }
 
-        // Add to Cart functionality
-        const addToCartBtn = document.getElementById('add-to-cart-btn');
-        const productName = document.getElementById('product-name');
-        const productPrice = document.getElementById('product-price');
-        const productSize = document.getElementById('product-size');
-        const productQuantity = document.getElementById('product-quantity');
-        const mainProductImage = document.getElementById('MainImg');
-        const messageBox = document.getElementById('messageBox');
     </script>
 
     <script src="script.js"></script>
