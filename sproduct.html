@@ -273,56 +273,6 @@
         const productQuantity = document.getElementById('product-quantity');
         const mainProductImage = document.getElementById('MainImg');
         const messageBox = document.getElementById('messageBox');
-
-        // Function to display a message to the user
-        function showMessage(message, type = 'success') {
-            messageBox.textContent = message;
-            messageBox.className = `message-box show ${type}`; // Add type for different styles if needed
-            setTimeout(() => {
-                messageBox.className = 'message-box';
-            }, 3000); // Hide after 3 seconds
-        }
-
-        addToCartBtn.addEventListener('click', () => {
-            const name = productName.textContent;
-            // Remove 'P ' and ',' from price, then parse to float
-            const price = parseFloat(productPrice.textContent.replace('P ', '').replace(',', ''));
-            const size = productSize.value;
-            const quantity = parseInt(productQuantity.value);
-            const image = mainProductImage.src;
-
-            if (quantity < 1) {
-                showMessage("Quantity must be at least 1.", "error");
-                return;
-            }
-
-            const product = {
-                id: `${name}-${size}`, // Unique ID for product + size combination
-                name,
-                price,
-                size,
-                quantity,
-                image
-            };
-
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Check if product with same name and size already exists in cart
-            const existingProductIndex = cart.findIndex(item => item.id === product.id);
-
-            if (existingProductIndex > -1) {
-                // Update quantity if product already in cart
-                cart[existingProductIndex].quantity += quantity;
-                showMessage(`${quantity} more "${name}" (Size: ${size}) added to cart!`);
-            } else {
-                // Add new product to cart
-                cart.push(product);
-                showMessage(`"${name}" (Size: ${size}) added to cart!`);
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log('Cart updated:', cart);
-        });
     </script>
 
     <script src="script.js"></script>
